@@ -1,0 +1,17 @@
+
+ip access-list extended SSH_ACCESS_IN
+remark remote ssh access created on 2022
+permit ip host 192.168.0.10 any
+300 deny ip any any
+exit
+!
+line vty 0 4
+no access-class 69 in
+access-class SSH_ACCESS_IN in
+exit
+!
+line vty 0 15
+no access-class 69 in
+access-class SSH_ACCESS_IN in
+exit
+!
